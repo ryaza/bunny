@@ -14,6 +14,10 @@ export var CalendarDate = {
     getWeeksInMonth: function(year, month_index) {
         if (this.getDayOfWeekOfFirstMonthDay(year, month_index) === 0 && this.getDaysInMonth(year, month_index) === 28) {
             return 4; // only in February with 28 days when monday is February 1st are 4 weeks
+        } else if (this.getDayOfWeekOfFirstMonthDay(year, month_index) >= 5 && this.getDaysInMonth(year, month_index) === 31) {
+            return 6;
+        } else if (this.getDayOfWeekOfFirstMonthDay(year, month_index) === 6 && this.getDaysInMonth(year, month_index) === 30) {
+            return 6;
         } else {
             return 5;
         }
